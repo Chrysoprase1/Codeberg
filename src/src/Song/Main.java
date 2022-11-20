@@ -1,12 +1,21 @@
+// program that compares two objects to each other
+// and prints whether they are equal to each other or not
+// example code included in main, compare method included in Song.java
 
 public class Main {
 
-  public static void main(String[] args) {
-    // This is just an empty main method, where you can test your
-    // Song class. You can for instance try this:
+    public static void main(String[] args) {
+        // you can write code here for testing your program
 
-     Song garden = new Song("In The Garden", 10910);
-     System.out.println("The song " + garden.name() + " has a length of " + garden.length() + " seconds.");
+        Song jackSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
+        Song anotherSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
 
-  }
+        if (jackSparrow.equals(anotherSparrow)) {
+            System.out.println("Songs are equal.");
+        }
+
+        if (jackSparrow.equals("Another object")) {
+            System.out.println("Strange things are afoot.");
+        }
+    }
 }
