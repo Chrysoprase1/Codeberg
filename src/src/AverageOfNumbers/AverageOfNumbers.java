@@ -1,4 +1,9 @@
+// program that asks user for inputs and will return the average number of given
+// integers after it stops
+    // program stops by entering String "end"
 
+import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AverageOfNumbers {
@@ -6,26 +11,22 @@ public class AverageOfNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        int sum = 0;
-        int count = 0;
-        double average = 0;
+        ArrayList<String> list= new ArrayList<>();
         
         while (true) {
-            System.out.println ("Give a number:");
-            int input = Integer.valueOf (scanner.nextLine());
+            System.out.println("Input numbers, type \"end\" to stop.");
+            String input = scanner.nextLine();
             
-            if (input == 0) {
+            if (input.equals ("end")) {
                 break;
             }
             
-            sum = sum + input;
-            count = count + 1;
+            list.add (input);
         }
-        if (count > 0) {
-            average = (1.0* sum) / count;
-            System.out.println ("Average of the numbers: " + average);
-        } else {
-            System.out.println ("Average of the numbers: 0");
-        }
+        Double average = list.stream()
+                        .mapToInt (s -> Integer.valueOf (s))
+                        .average()
+                        .getAsDouble(); 
+        System.out.println("Average of numbers; " + average);
     }
 }
